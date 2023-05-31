@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">BackOffice</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,9 +28,6 @@
         </div>
     </div>
 </nav>
-<div class="container">
-    <h1> Welcome, {{ Auth::user()->name }}</h1>
-</div>
 
 @if (Auth::user()->id_tipo_user == 1)
     <div class="container">
@@ -40,7 +37,7 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>ID Tipo User</th>
+                <th>Tipo User</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -55,7 +52,7 @@
                         <form action="{{ route('users.delete', $user->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger" formaction="{{ route('users.delete', $user->id) }}" formmethod="POST">Delete</button>
                         </form>
                     </td>
                 </tr>
@@ -64,6 +61,5 @@
         </table>
     </div>
 @endif
-
 </body>
 </html>

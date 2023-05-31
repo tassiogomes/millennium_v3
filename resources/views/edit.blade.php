@@ -29,9 +29,9 @@
                         <div class="mb-3">
                             <label for="id_tipo_user" class="form-label">ID Tipo User</label>
                             <select name="id_tipo_user" class="form-select" id="id_tipo_user" required>
-                                <option value="1" {{ $user->id_tipo_user == 1 ? 'selected' : '' }}>Option 1</option>
-                                <option value="2" {{ $user->id_tipo_user == 2 ? 'selected' : '' }}>Option 2</option>
-                                <option value="3" {{ $user->id_tipo_user == 3 ? 'selected' : '' }}>Option 3</option>
+                                <option value="1" {{ $user->id_tipo_user == 1 ? 'selected' : '' }}>1 - Admin</option>
+                                <option value="2" {{ $user->id_tipo_user == 2 ? 'selected' : '' }}>2 - Gestor</option>
+                                <option value="3" {{ $user->id_tipo_user == 3 ? 'selected' : '' }}>3 - Cliente</option>
                             </select>
                         </div>
                         <div class="mb-3">
