@@ -32,36 +32,38 @@
     <h1> Welcome, {{ Auth::user()->name }}</h1>
 </div>
 
-<div class="container">
-    <h1> Welcome, {{ Auth::user()->name }}</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>ID Tipo User</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($users as $user)
+@if (Auth::user()->id_tipo_user == 1)
+    <div class="container">
+        <h1> Welcome, {{ Auth::user()->name }}</h1>
+        <table class="table">
+            <thead>
             <tr>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->id_tipo_user }}</td>
-                <td>
-                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ route('users.delete', $user->id) }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
+                <th>Name</th>
+                <th>Email</th>
+                <th>ID Tipo User</th>
+                <th>Actions</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            @foreach($users as $user)
+                <tr>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->id_tipo_user }}</td>
+                    <td>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
+                        <form action="{{ route('users.delete', $user->id) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+@endif
 
 </body>
 </html>
