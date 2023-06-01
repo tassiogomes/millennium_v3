@@ -36,6 +36,11 @@
                                 <button class="btn btn-primary">Login</button>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <div class="text-center">
+                              <a href="{{ route('password.request') }}">Forgot Your Password?</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

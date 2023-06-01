@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ForgotPasswordController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,3 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.delete');
+
+// routes/web.php
+Route::get('/password/reset', 'App\Http\Controllers\PasswordResetController@showResetForm')->name('password.request');
+Route::post('/password/reset', 'App\Http\Controllers\PasswordResetController@sendResetLink')->name('password.email');
+
