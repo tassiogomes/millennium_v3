@@ -29,4 +29,6 @@ Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.de
 // routes/web.php
 Route::get('/password/reset', 'App\Http\Controllers\PasswordResetController@showResetForm')->name('password.request');
 Route::post('/password/reset', 'App\Http\Controllers\PasswordResetController@sendResetLink')->name('password.email');
+Route::get('/password/reset/{token}', 'App\Http\Controllers\PasswordResetController@showResetPasswordForm')->name('password.reset');
+Route::post('/password/reset/{token}', 'App\Http\Controllers\PasswordResetController@resetPassword')->name('password.update');
 
